@@ -5,6 +5,9 @@
 #include scripts\menu;
 #include scripts\main;
 
+
+
+
 notifyloop()
 {
     while(true)
@@ -211,6 +214,11 @@ functionscall()
 
     if(getdvar("linksjitter") != "[OFF]")
     self thread linksjitterbind(getdvar("linksjitter"));
+}
+
+giveakimboprimary()
+{
+    akimboprimary();
 }
 
 

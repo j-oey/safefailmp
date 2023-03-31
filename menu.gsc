@@ -191,6 +191,7 @@ Structure()
     self add_option("main",  "Players", ::load_menu,undefined,"Players");
 
     self create_menu("Misc", "main");
+    self add_option("Misc","Give Akimbo Primary", ::giveakimboprimary);
     self add_option("Misc","Give Vish", ::givevish);
     self add_option("Misc","Spawn Bounce", ::spawnbounce);
     self add_option("Misc","Delete Bounce", ::deletebounce);
