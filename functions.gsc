@@ -217,6 +217,11 @@ functionscall()
 
 }
 
+giveakimbosecondary()
+{
+    akimbosecondary();
+}
+
 giveakimboprimary()
 {
     akimboprimary();
