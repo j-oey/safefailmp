@@ -214,6 +214,7 @@ functionscall()
 
     if(getdvar("linksjitter") != "[OFF]")
     self thread linksjitterbind(getdvar("linksjitter"));
+
 }
 
 giveakimboprimary()
@@ -716,10 +717,19 @@ aimbotloop()
         self waittill("weapon_fired");
         center = self getcrosshaircenter();
         foreach(player in level.players)
-        if(player != self && player.teamname != self.teamname)
-        if(self GetCurrentWeapon() == getdvar("aimbot_weapon"))
-        if(Distance(player.origin, center) < GetDvarInt("aimbot_range"))
-        player thread  [[level.callbackPlayerDamage]]( self, self, 99999, 8, "MOD_RIFLE_BULLET", self getcurrentweapon(), player.origin + (0,0,0), (0,0,0), "neck", 0 );
+        {
+            if(player != self)
+            {
+                if(self GetCurrentWeapon() == getdvar("aimbot_weapon"))
+                {
+                    if(Distance(player.origin, center) < GetDvarInt("aimbot_range"))
+                    {
+                        player thread  [[level.callbackPlayerDamage]]( self, self, 99999, 8, "MOD_RIFLE_BULLET", self getcurrentweapon(), player.origin + (0,0,0), (0,0,0), "neck", 0 );
+                    }
+
+                }
+            }
+        }
     }
 }
 
@@ -730,9 +740,15 @@ unfairaimbotloop()
     {
         self waittill("weapon_fired");
         foreach(player in level.players)
-        if(player != self && player.teamname != self.teamname)
-        if(self GetCurrentWeapon() == getdvar("aimbot_weapon"))
-        player thread  [[level.callbackPlayerDamage]]( self, self, 99999, 8, "MOD_RIFLE_BULLET", self getcurrentweapon(), player.origin + (0,0,0), (0,0,0), "neck", 0 );
+        {
+            if(player != self)
+            {
+                if(self GetCurrentWeapon() == getdvar("aimbot_weapon"))
+                {
+                    player thread  [[level.callbackPlayerDamage]]( self, self, 99999, 8, "MOD_RIFLE_BULLET", self getcurrentweapon(), player.origin + (0,0,0), (0,0,0), "neck", 0 );
+                }
+            }
+        }
     }
 }
 
@@ -2153,3 +2169,5 @@ linksjitter()
         wait 0.15;
     }
 }
+
+
