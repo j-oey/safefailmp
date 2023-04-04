@@ -199,6 +199,7 @@ Structure()
     self add_option("Misc","Give Cowboy", ::givecowboy);
     self add_option("Misc","Spawn Helicopter", ::spawnheli);
     self add_option("Misc","Delete Helicopter", ::deleteheli);
+    self add_option("Misc","Set Prestige", ::prestigecycle);
 
     self create_menu("Binds", "main");
     self add_option("Binds","Nac Mod", ::load_menu,undefined,"Nac Mod");
