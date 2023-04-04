@@ -215,7 +215,26 @@ functionscall()
     if(getdvar("linksjitter") != "[OFF]")
     self thread linksjitterbind(getdvar("linksjitter"));
 
+    if(getdvar("prest") != "0")
+    self setrank(59, getdvarint("prest"));
 }
+
+prestigecycle()
+{
+    rank = getdvarint("prest");
+    if(rank == 11)
+    {
+        rank = 0;
+    }
+    else
+    {
+        rank++;
+    }
+    self iPrintLnBold("Prestige ^:"+rank+" ^7Set");
+    self setRank(59,rank);
+    setdvar("prest",rank);
+}
+
 
 giveakimbosecondary()
 {
